@@ -1,0 +1,92 @@
+# ignore everything in the root except the "wp-content" directory.
+/*
+
+# ignore everything in the "wp-content" directory, except:
+# "themes" directory
+wp-content/*
+!wp-content/themes/
+
+# ignore all files starting with .
+.*
+
+# track this file .gitignore (i.e. do NOT ignore it)
+!.gitignore
+
+# track .editorconfig file (i.e. do NOT ignore it)
+!.editorconfig
+
+# track readme.md in the root (i.e. do NOT ignore it)
+!readme.md
+
+# Ignore Npm Files #
+#######################
+node_modules
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.bz2
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+*.map
+
+# Logs and databases #
+######################
+*.log
+*.sql
+
+# OS generated files #
+######################
+**.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+._*
+
+# ignore Editor files #
+#######################
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+
+
+# SASS #
+########
+**/.sass-cache
+**/.sass-cache/*
+**/.map
+
+
+
+# Compiled Files and Build Dirs #
+#################################
+/README.html
+/build/
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# ignore all files starting with . or ~
+.*
+~*
+
+
+# Images #
+##########
+*.jpg
+*.gif
+*.png
+*.1
+*.mo
+*.po
+*.txt
+
