@@ -4,7 +4,7 @@
     background-color: $tertiaryBgColor;
     @include bp(small) {padding: 1rem 0;}
 }
-
+    .home.portrait #footerOut, .contact.portrait #footerOut{position:absolute; bottom:0; left:0; width:100%;}
 #footerContent {
     text-align: center;
     h2, h3 {

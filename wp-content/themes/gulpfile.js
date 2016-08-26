@@ -1,7 +1,7 @@
 var theme = './sebastian';
 var styleFiles = theme + '/scss/style.scss';
 var jsFiles = theme + '/js/*.js';
-var parent = './core';
+var parent = './velcro';
 var projectURL = 'http://localhost/sebastian/'; // theme URL. Could be something like localhost:8888.
 
 var gulp = require( 'gulp' ); // Gulp of-course

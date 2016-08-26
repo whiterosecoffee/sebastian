@@ -1,12 +1,14 @@
 /*!
-Theme Name: Sebastian - Core Child
-Template: core
+Theme Name: Sebastian
+Template: Velcro
 Author: Nathan Bowman
 Version: 1.0
 */
 
+$parentTheme: Velcro;
+
 @import "child-settings";
-@import "../../core/scss/style";
+@import "../../velcro/scss/style";
 
 //PARTIALS
 @import "partials/header";

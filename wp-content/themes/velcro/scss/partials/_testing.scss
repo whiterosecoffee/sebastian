@@ -13,9 +13,9 @@ div#windowSize{position:fixed; bottom:2%; left:2%; padding:.5rem; background-col
   }
 
 
-//html.devTesting.grid { background: rgb(244, 244, 244) url(img/testing/html-bg.png) repeat-x 0 1.618em; }
+//html.devTesting.grid { background: rgb(244, 244, 244) url(../velcro/img/testing/html-bg.png) repeat-x 0 1.618em; }
 
-//.devTesting.grid body { background: url(../core/img/testing/margin-bg.png); }
+//.devTesting.grid body { background: url(../velcro/img/testing/margin-bg.png); }
 
 .devTesting.grid .column {background-color: #F4F4F4;}
 
@@ -26,8 +26,8 @@ div#windowSize{position:fixed; bottom:2%; left:2%; padding:.5rem; background-col
   url(img/testing/blue-width-middle.png) repeat-x 0 0,
   rgba(244,244,244,0.5);
   }
-  
+
 .devTesting.grid .gutter{
   background: url(img/testing/margin-bg.png);
 }
-  
+
