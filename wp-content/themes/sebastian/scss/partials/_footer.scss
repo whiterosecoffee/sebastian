@@ -5,6 +5,11 @@
     @include bp(small) {padding: 1rem 0;}
 }
     .home.portrait #footerOut, .contact.portrait #footerOut{position:absolute; bottom:0; left:0; width:100%;}
+    .contact #footerOut, .services #footerOut {
+        @include bp(afterSmall) {position:absolute; top:100%; left:0; width:100%;}
+
+    }
+
 #footerContent {
     text-align: center;
     h2, h3 {

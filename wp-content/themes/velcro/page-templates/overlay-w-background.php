@@ -40,11 +40,11 @@
 }
 
 @media only screen and (min-width : 640px) and (max-width: 980px){
-	div#overlayContent{max-width:75%; margin-left:auto; margin-right:auto;  margin-bottom: 1.5rem; font-size: 1em;}
+	div#overlayContent{max-width:75%; margin-left:auto; margin-right:auto;  margin-bottom: 2rem; font-size: 1em;}
 }
 
 @media only screen and (min-width : 950px) {
-	div#overlayContent{max-width:450px; margin:8% 9% 1.5rem;}
+	div#overlayContent{max-width:450px; margin:9% 12% 2rem;}
 		div#overlayContent p{font-size:.85rem;}
 
 }

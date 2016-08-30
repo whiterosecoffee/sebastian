@@ -15,11 +15,11 @@
 <!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html dir="ltr" lang="en-US" prefix="og: http://ogp.me/ns#" class="no-js grid ltr devTesting" data-device="<?php echo($deviceType);?>" data-page="<?php echo(the_parent_slug());?>">
 <!--<![endif]-->
-<base href="/sebastian/">
 
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
 
 <title><?php wp_title(); ?></title>
 <?php get_template_part('/section-templates/head-content' );?>

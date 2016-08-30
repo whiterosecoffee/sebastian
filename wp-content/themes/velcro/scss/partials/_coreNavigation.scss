@@ -17,10 +17,10 @@
 
 #navCloseBtn {
     position: absolute;
-    top: 1rem;
-    right: 1.25rem;
+    top: 1.25rem;
     color: $mobileMenuCloseBtnColor;
-    font-size: 1.25em;
+    @include bp(small) {right: 10%; font-size: 1.25em;}
+    @include bp(afterSmall) { right: 2.75%; font-size: 2.25em;}
 }
 
     //Hide respective elements when menu changes

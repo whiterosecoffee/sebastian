@@ -35,6 +35,7 @@ function coreResize(){
 	//Reset base values
 	docWidth 	= document.body.clientWidth;
 	docHeight 	= document.body.clientHeight;
+    console.log(docHeight);
 	viewWidth 	= window.innerWidth;
 	viewHeight 	= window.innerHeight;
 	viewAsp		= (window.innerWidth/window.innerHeight).toFixed(2);
@@ -58,24 +59,21 @@ function coreResize(){
     }
 
 	//Log current device info
-	console.log('coreFramework.js/coreResize H:'+ viewHeight +' x W:' + viewWidth +' Asp:' + viewAsp +' ' + aspText +' ' + deviceType);
+	console.log('coreFramework.js/coreResize dH:'+ docHeight + ' - vH:'+ viewHeight +  ' x vW:' + viewWidth +' Asp:' + viewAsp +' ' + aspText +' ' + deviceType);
     jQuery('.mobileMenu #nav').css('height', viewHeight);
     mobileMenuHeight();
 }// coreResize
 
 
 
-//fix wrapper height on short screens
+//fix wrapper height on short screens - triggered on .resize
 function setHTMLMinHeight(){
 	var wrapperHeight = jQuery('#wrapper').height();
-	jQuery('html').css('height', 'auto');
+    jQuery('html').css('height', 'auto');
+    jQuery('body').css('height', 'auto');
 	if(wrapperHeight < viewHeight){
 		jQuery('html').css('height', viewHeight);
 		jQuery('body').css('height', viewHeight);
-	}
-	else{
-		jQuery('html').css('height', wrapperHeight);
-		jQuery('body').css('height', wrapperHeight);
 	}
 }
 
@@ -93,11 +91,10 @@ function toggleNavClass() {
 }
 
 function mobileMenuHeight(){
+    jQuery('#nav').css('height', 'auto');
     if ( jQuery(body).hasClass('mobileMenu') ){
-        jQuery('.mobileMenu #nav').css('height', viewHeight);
-    }
-    else{
-        jQuery('#nav').css('height', 'auto');
+        jQuery('.mobileMenu #nav').css('height', docHeight);
+        jQuery('.mobileMenu #nav').css('min-height', viewHeight);
     }
 }
 

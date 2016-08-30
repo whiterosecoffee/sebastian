@@ -1,0 +1,10 @@
+ul#adminmenu li#menu-posts-projects .wp-menu-name,
+ul#adminmenu li#menu-posts-testimonials .wp-menu-name,
+ul#adminmenu li#menu-posts-quotes .wp-menu-name{
+    color:orange;
+    font-weight: bold;
+}
+
+ul#adminmenu li#menu-comments{
+    display: none;
+}

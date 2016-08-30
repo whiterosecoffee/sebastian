@@ -8,11 +8,11 @@
 }
 
 #logo {
-    position: absolute;
+    position: absolute; z-index: 999;
     @include bp(smallPortrait) {display: none;}
     @include bp(smallLandscape) {width: 65px; top: .75rem; right: 3.5%;}
-    @include bp(medium) {width: 85px; top: 1.75rem; right: 4%;}
-    @include bp(large) {width: 100px; top: 2rem; right: 4%;}
+    @include bp(medium) {width: 100px; top: 1.75rem; right: 4%;}
+    @include bp(large) {width: 125px; top: 2rem; right: 4%;}
 }
 
 #pageTitle {

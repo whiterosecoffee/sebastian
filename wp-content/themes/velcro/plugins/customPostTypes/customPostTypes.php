@@ -13,14 +13,11 @@ class PortfolioCpt {
 		$portfolio_model = new RegisterNewPostType();
 			$portfolio_model->name 		= 'Projects';
 			$portfolio_model->textDom 	= 'core-cpt-project';
-			$portfolio_model->menuIcon 	= 'dashicons-welcome-write-blog';
+			$portfolio_model->menuIcon 	= 'dashicons-images-alt2';
 			$portfolio_model->taxonomies = ['category', 'post_tag'];
 			$portfolio_model->fields 	=  [
 											"Address"				=> "text"
-											//"Attach your Resume"	=> "file",
-											//"Default Background"	=> "image",
-											//"Add Images"			=> "gallery",
-											//"Featured on Home Page"	=> "checkbox"
+
 								          ];
 
 		foreach ($portfolio_model->fields as $key => $value){
@@ -32,7 +29,7 @@ class PortfolioCpt {
 
 }PortfolioCpt::cptSettings();
 
-class BlogCpt {
+class TestimonialsCpt {
 	static function cptSettings() {
 		$blog_model = new RegisterNewPostType();
 			$blog_model->name 		= 'Testimonials';
@@ -52,7 +49,29 @@ class BlogCpt {
 
 		$blog_model->init();
 	}
-}//BlogCpt::cptSettings();
+}TestimonialsCpt::cptSettings();
+
+class QuotesCpt {
+	static function cptSettings() {
+		$blog_model = new RegisterNewPostType();
+			$blog_model->name 		= 'Quotes';
+			$blog_model->textDom 	= 'core-cpt-quotes';
+			$blog_model->menuIcon 	= 'dashicons-format-quote';
+			$blog_model->taxonomies = ['category', 'post_tag'];
+			$blog_model->fields 	= [
+											//"Address"				=> "text",
+											//"Attach your Resume"	=> "file",
+											//"Default Background"	=> "image",
+											//"Featured on Home Page"	=> "checkbox"
+								          ];
+
+		foreach ($blog_model->fields as $key => $value){
+			initPostFields($key, $value, $blog_model->name);
+		}
+
+		$blog_model->init();
+	}
+}QuotesCpt::cptSettings();
 
 
 

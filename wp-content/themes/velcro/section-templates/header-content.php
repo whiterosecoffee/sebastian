@@ -1,7 +1,7 @@
 <header class="contentWidth floatfix">
     <a id="navOpenBtn" class="nav-btn icon-menu icon"  href="#nav"></a>
     <a href="<?php bloginfo('url');?>" id="logo" class="">
-        <!--Add Logo-->
+        <img src="<?php echo(get_stylesheet_directory();?/img/logo.jpg"/>
     </a>
     <nav id="nav" role="navigation" class="floatfix nav-right">
         <a id="navCloseBtn" class="nav-btn icon icon-cancel-circle" href="#"></a>
@@ -12,11 +12,7 @@
         </nav><!-- Social Media -->
 
         <?php wp_nav_menu(array('menu' => 'main', 'container' => ''));?>
-        <!--
-        <div id="profile" class="floatfix">
-           <a href="#"><i class="icon-search icon"></i></a>
-           <a href="wp-admin"><i class="icon-user icon"></i></a>
-        </div> Profile-->
+
 
     </nav>
 
