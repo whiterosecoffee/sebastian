@@ -7,23 +7,28 @@ global $wpdb;			//$wpdb is a class of functions for easy database manipulations
 //ENQUEUE Styles & scripts
 include_once(get_template_directory().'/inc/parent-enqueue.php');
 
-//PLUGINS
+//Plugins
 include_once(get_template_directory().'/plugins/customPostTypes/customPostTypes.php');
 include_once(get_template_directory().'/plugins/galleryMetabox/galleryMetabox.php');
 include_once(get_template_directory().'/inc/mobile-detect.php'); //http://mobiledetect.net/
 
 
-//CORE THEME CUSTOMIZATION.
+//Parent Theme Custimizations
 include_once(get_template_directory().'/inc/coreFunctions.php');
 include_once(get_template_directory().'/inc/cleanWpHead.php');
 include_once(get_template_directory().'/inc/excerpt.php');
 
 
-//IMAGE SIZES
+//WP Rest API Custom Endpoints
+//$epBaseCpt = "velcro/v1/cpts/";
+include_once(get_template_directory().'/rest-endpoints/testimonials-endpoint.php');
+
+
+//Image Sizes
 add_image_size( 'coreLarge', '1920', '1920', false );
 
 
-//MENUS
+//Menus
 add_theme_support('main'); //initiates the menu section under the appearances panel in dashboard
 register_nav_menu('main','Main Site Navigation');
 register_nav_menu('scroll','Scroll Navigation');
