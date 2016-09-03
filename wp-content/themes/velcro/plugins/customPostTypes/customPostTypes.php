@@ -16,7 +16,7 @@ class PortfolioCpt {
 			$portfolio_model->menuIcon 	= 'dashicons-images-alt2';
 			$portfolio_model->taxonomies = ['category', 'post_tag'];
 			$portfolio_model->fields 	=  [
-											"Address"				=> "text"
+											//"Address"				=> "text"
 
 								          ];
 
@@ -31,48 +31,23 @@ class PortfolioCpt {
 
 class TestimonialsCpt {
 	static function cptSettings() {
-		$blog_model = new RegisterNewPostType();
-			$blog_model->name 		= 'Testimonials';
-			$blog_model->textDom 	= 'core-cpt-testimonial';
-			$blog_model->menuIcon 	= 'dashicons-welcome-write-blog';
-			$blog_model->taxonomies = ['category', 'post_tag'];
-			$blog_model->fields 	= [
-											"Address"				=> "text",
-											//"Attach your Resume"	=> "file",
-											"Default Background"	=> "image",
-											"Featured on Home Page"	=> "checkbox"
-								          ];
+		$testimanials_model = new RegisterNewPostType();
+			$testimanials_model->name 		= 'Testimonials';
+			$testimanials_model->textDom 	= 'core-cpt-testimonial';
+			$testimanials_model->menuIcon 	= 'dashicons-welcome-write-blog';
+			$testimanials_model->taxonomies = ['page-attributes'];
+			$testimanials_model->fields 	= [
+											"Client"	=> "text",
+                                            "Company"	=> "text",
+								            ];
 
-		foreach ($blog_model->fields as $key => $value){
-			initPostFields($key, $value, $blog_model->name);
+		foreach ($testimanials_model->fields as $key => $value){
+			initPostFields($key, $value, $testimanials_model->name);
 		}
 
-		$blog_model->init();
+		$testimanials_model->init();
 	}
 }TestimonialsCpt::cptSettings();
-
-class QuotesCpt {
-	static function cptSettings() {
-		$blog_model = new RegisterNewPostType();
-			$blog_model->name 		= 'Quotes';
-			$blog_model->textDom 	= 'core-cpt-quotes';
-			$blog_model->menuIcon 	= 'dashicons-format-quote';
-			$blog_model->taxonomies = ['category', 'post_tag'];
-			$blog_model->fields 	= [
-											//"Address"				=> "text",
-											//"Attach your Resume"	=> "file",
-											//"Default Background"	=> "image",
-											//"Featured on Home Page"	=> "checkbox"
-								          ];
-
-		foreach ($blog_model->fields as $key => $value){
-			initPostFields($key, $value, $blog_model->name);
-		}
-
-		$blog_model->init();
-	}
-}QuotesCpt::cptSettings();
-
 
 
 class RegisterNewPostType {
@@ -101,7 +76,7 @@ class RegisterNewPostType {
 function initPostFields($fieldName, $fieldType, $cptName){
 
 	switch ($fieldType) {
-	    case "text":
+        case "text":
 			$fieldName = new PostField(
 		      $cptName,
 		      $fieldName,
@@ -111,6 +86,19 @@ function initPostFields($fieldName, $fieldType, $cptName){
 				$fieldName->init(
 				  $fieldName->meta_box_text_input_generator,
 				  PostField::$getTextFieldValue,
+				  'side'
+				);
+			break;
+        case "textarea":
+			$fieldName = new PostField(
+		      $cptName,
+		      $fieldName,
+		      $fieldName,
+		      ''
+			);
+				$fieldName->init(
+				  $fieldName->meta_box_textarea_generator,
+				  PostField::$getTextAreaValue,
 				  'side'
 				);
 			break;
