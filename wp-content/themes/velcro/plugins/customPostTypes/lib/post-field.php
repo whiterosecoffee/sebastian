@@ -1,11 +1,12 @@
 <?php
 
-namespace core; 
+namespace core;
 
 class PostField {
   static $meta_box_text_template;
   static $getBooleanFieldValue;
   static $getTextFieldValue;
+  static $getTextAreaValue;
   static $getFileFieldValue;
   static $getGalleryFieldValue;
 
@@ -14,9 +15,11 @@ class PostField {
     $this->slug   = $slug;
     $this->name   = $name;
     $this->label  = $label;
-	
+
 	$that = $this;
-    $that->meta_box_checkbox_generator = function( $post ) use ($that){
+
+    // ** CHECKBOX ***********************
+    $that->meta_box_checkbox_generator = function( $post ) use ( $that ){
       $checked = ( $that->getValue( $post ))? 'checked': '';
       $nonce_html = wp_nonce_field( $that->slug, $that->slug . '_nonce', true );
       ?>
@@ -25,7 +28,8 @@ class PostField {
       <?php
     };
 
-    $that->meta_box_text_input_generator = function( $post ) use($that) {
+    // ** TEXT Input ***********************
+    $that->meta_box_text_input_generator = function( $post ) use ( $that ) {
       $nonce_html = wp_nonce_field( $that->slug, $that->slug . '_nonce', true );
       ?>
         <label for="<?= $that->slug ?>"><?= _e( ucfirst( $that->label )) ?></label>
@@ -33,14 +37,25 @@ class PostField {
       <?php
     };
 
-    //NATHAN - META_BOX_IMAGE_INPUT_GENERATOR**************************************
+    // ** TEXTAREA ***********************
+    $that->meta_box_textarea_generator = function( $post ) use ( $that ) {
+      $nonce_html = wp_nonce_field( $that->slug, $that->slug . '_nonce', true );
+      ?>
+        <label for="<?= $that->slug ?>"><?= _e( ucfirst( $that->label )) ?></label>
+        <textarea id="<?= $that->slug ?>" name="<?= $that->slug ?>">
+            <?= esc_attr( $that->getValue( $post )) ?>
+        </textarea>
+      <?php
+    };
+
+    // ** IMAGE ***********************
      $that->meta_box_image_input_generator = function( $post ) use($that){
     	$url_parts = explode( '/', $that->getValue( $post ));
     	$value = esc_attr( array_pop( $url_parts ));
     	$nonce_html = wp_nonce_field( $that->slug, $that->slug . '_nonce', true );
     	$post_meta = get_post_meta($post->ID);
     	?>
-    	
+
     	<?php if (isset ($post_meta['image'])){ ?>
         <p><?= $value ?></p>
         <img src="<?php echo $post_meta['image'][0]; ?>" width="100%"/>
@@ -48,10 +63,11 @@ class PostField {
 
 	<label for="<?= $that->slug ?>"><?= _e( ucfirst( $that->label )) ?></label>
 	<input id="<?= $that->slug ?>" type="file" name="<?= $that->slug ?>">
-	
+
 	<?php
     };//meta_box_image_input_generator
-	
+
+    // ** FILE  ***********************
     $that->meta_box_file_input_generator = function( $post ) use ($that) {
       $url_parts = explode( '/', $that->getValue( $post ));
       $value = esc_attr( array_pop( $url_parts ));
@@ -63,7 +79,7 @@ class PostField {
         <?php endif; ?>
         <label for="<?= $that->slug ?>"><?= _e( ucfirst( $that->label )) ?></label>
         <input id="<?= $that->slug ?>" type="file" name="<?= $that->slug ?>">
-        
+
       <?php
     };
  }
@@ -126,6 +142,10 @@ PostField::$getBooleanFieldValue = function( $request, $slug ) {
 };
 
 PostField::$getTextFieldValue = function( $request, $slug ) {
+  return $request[ $slug ];
+};
+
+PostField::$getTextAreaValue = function( $request, $slug ) {
   return $request[ $slug ];
 };
 
