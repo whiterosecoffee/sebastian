@@ -16,5 +16,5 @@
 
     </nav>
 
-</header><!--#main-->
+</header><!--#headerContent-->
 

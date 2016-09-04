@@ -10,7 +10,7 @@ include_once(get_template_directory().'/inc/parent-enqueue.php');
 //Plugins
 include_once(get_template_directory().'/plugins/customPostTypes/customPostTypes.php');
 include_once(get_template_directory().'/plugins/galleryMetabox/galleryMetabox.php');
-include_once(get_template_directory().'/inc/mobile-detect.php'); //http://mobiledetect.net/
+include_once(get_template_directory().'/inc/mobile-detect.php'); // http://mobiledetect.net/
 
 
 //Parent Theme Custimizations
@@ -22,6 +22,11 @@ include_once(get_template_directory().'/inc/excerpt.php');
 //WP Rest API Custom Endpoints
 //$epBaseCpt = "velcro/v1/cpts/";
 include_once(get_template_directory().'/rest-endpoints/testimonials-endpoint.php');
+
+
+//Angular Libraries
+// NOTE: Make conditional on Child theme switch.
+include_once(get_template_directory().'/ng/enqueue-angular.php');
 
 
 //Image Sizes

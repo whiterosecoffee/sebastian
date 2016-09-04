@@ -33,7 +33,7 @@
 <div id="wrapper" >
     <div id="headerOut" class="wrapper floatfix">
         <?php get_template_part('/section-templates/header-content' ); ?>
-    </div>
+    </div><!-- headerOut -->
 
 
 
