@@ -17,8 +17,7 @@ class PortfolioCpt {
 			$portfolio_model->taxonomies = ['category', 'post_tag'];
 			$portfolio_model->fields 	=  [
 											//"Address"				=> "text"
-
-								          ];
+								           ];
 
 		foreach ($portfolio_model->fields as $key => $value){
 			initPostFields($key, $value, $portfolio_model->name);
@@ -48,6 +47,24 @@ class TestimonialsCpt {
 		$testimanials_model->init();
 	}
 }TestimonialsCpt::cptSettings();
+
+
+class QuotesCpt {
+	static function cptSettings() {
+		$quotes_model = new RegisterNewPostType();
+			$quotes_model->name          = 'Quotes';
+			$quotes_model->textDom       = 'velcro-cpt-quotes';
+			$quotes_model->menuIcon 	 = 'dashicons-welcome-write-blog';
+			$quotes_model->taxonomies    = ['page-attributes'];
+			$quotes_model->fields        = [];
+
+		foreach ($quotes_model->fields as $key => $value){
+			initPostFields($key, $value, $quotes_model->name);
+		}
+
+		$quotes_model->init();
+	}
+}QuotesCpt::cptSettings();
 
 
 class RegisterNewPostType {
