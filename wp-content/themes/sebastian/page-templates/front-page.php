@@ -9,6 +9,7 @@
     </div>
 
     <?php include_once(get_stylesheet_directory().'/views/pageTitle.php'); ?>
+    <?php include_once(get_stylesheet_directory().'/ng-apps/quotes/ng-quotes-template.php'); ?>
 
 <?php get_footer(); ?>
 <!-- Core Single Projects Template -->
