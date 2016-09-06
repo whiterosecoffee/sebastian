@@ -22,6 +22,7 @@ include_once(get_template_directory().'/inc/excerpt.php');
 //WP Rest API Custom Endpoints
 //$epBaseCpt = "velcro/v1/cpts/";
 include_once(get_template_directory().'/rest-endpoints/testimonials-endpoint.php');
+include_once(get_template_directory().'/rest-endpoints/quotes-endpoint.php');
 
 
 //Angular Libraries
