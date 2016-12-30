@@ -4,7 +4,7 @@
  *
  * Included in all full page templates.
  *
- * See documentation on root footer.php
+ * See documentation on footer.php
  *
  * @package velcro
  *
@@ -16,10 +16,13 @@
 
         <?php
         /**
-        * Default contains theme specific footer content.
-        * Can be overwritten by child theme
+        * Footer Template controls project specific footer content.
+        *
+        * Load an existing template or overwrite with child theme.
+        *
+        * @param None
         */
-        velcro_get_template_part('templates/footer-template.php');
+        velcro_get_template_part('footer/footer-template.php');
         ?>
 
     </footer><?php //#footer ?>
