@@ -1,40 +1,22 @@
-<?php global $detect; global $deviceType; //http://mobiledetect.net/ ?>
+<?php
+/**
+ * The header for the Velcro theme
+ *
+ * Included in all full page templates.  The <headerContent> optionally loads child theme head content.
+ *
+ * @global $deviceType contains string result from $detect in /inc/coreFunction.php
+ * @link http://mobiledetect.net/
+ *
+ * @global $menuType contains string result var definition in /inc/coreFunction.php
+ *
+ * @package velcro
+ *
+ * FIX: Add description to each include
+*/
+?>
 <!DOCTYPE html>
-<!--[if lt IE 7]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-   <style type="text/css">
-	.current-menu-item {border-bottom: none;}
-    </style>
-<![endif]-->
-<!--[if IE 7]>
-<html class="ie ie7" lang="en-US" prefix="og: http://ogp.me/ns#">
-<![endif]-->
-<!--[if IE 8]>
-<html class="ie ie8" lang="en-US" prefix="og: http://ogp.me/ns#">
-<![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
-<html dir="ltr" lang="en-US" prefix="og: http://ogp.me/ns#" class="no-js grid ltr devTesting" data-device="<?php echo($deviceType);?>" data-page="<?php echo(the_parent_slug());?>">
-<!--<![endif]-->
-
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
-
-<title><?php wp_title(); ?></title>
-<?php get_template_part('/section-templates/head-content' );?>
-<?php wp_head();?>
-</head>
-
-<body class="mobileMenu mobileMenuClosed <?php echo(the_parent_slug());?> <?php echo($deviceType);?>" >
-
-
-<div id='pageLoader'></div>
-<div id="wrapper" >
-    <div id="headerOut" class="wrapper floatfix">
-        <?php get_template_part('/section-templates/header-content' ); ?>
-    </div><!-- headerOut -->
-
-
-
-
+<?php velcro_get_template_part('templates/document/html.php'); ?>
+<?php velcro_get_template_part('templates/document/head.php'); ?>
+<?php velcro_get_template_part('templates/document/body.php'); ?>
+<?php velcro_get_template_part('templates/document/modals.php'); ?>
+<?php velcro_get_template_part('templates/header-template.php'); ?>

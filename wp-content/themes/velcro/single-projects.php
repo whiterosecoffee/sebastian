@@ -1,61 +1,80 @@
-<!-- Single Projects Template -->
+<!-- velcro/ Single Projects Template -->
 
-<?php include_once(get_template_directory().'/plugins/galleryMetabox/jsonReturnGallery.php'); //RETURNS allSizes image array for $post-ID?>
+<?php include_once(get_template_directory().'/plugins/image-gallery/gallery-json.php'); //RETURNS allSizes image array for $post->ID ?>
 <script>
 
-	 jQuery(document).ready(function() {
+ jQuery(document).ready(function() {
 
-		//#projectsGallery Image Slider
-		var slidesParent 		= '#projectsGallery';
-		var slidesContainer 	= '#slidesContainer';
-		var slidesContent 		= getImagesByScreenSize(allSizes);
-		var thumbsContainer 	= '#thumbsContainer';
-		var thumbsContent 		= allSizes[4];
+    //New Dragend Class
+	var slidesContainer 	= '#projectsGallery';
+	var slidesContent 		= getImagesByScreenSize(allSizes); //replace allSizes with Json Rest Endpoint
+    var thumbsContent 		= allSizes[0];
 
-		createDragendSlides( slidesParent, slidesContent, "images", "thumbnails");
-		updateDragendSlider( slidesParent, viewHeight, "thumbnails");
-		jQuery(slidesContainer).dragend({});
+     createSlides(
+         slidesContainer,   // where
+         slidesContent,     // slides content array
+         viewHeight,        // slides size
+         "images",          // slides type
+         thumbsContent,     // which thumbnails
+         "thumbnails"       // thumbs type
+     );
 
-		jQuery(window).resize(_.debounce(function(){
-			updateDragendSlider( slidesParent, viewHeight, true );
-			//setThumbsPerPage();
-		}, 50));
+    //init Dragend
+	jQuery(slidesContainer).dragend({});
 
-		doRecursively( function(){ autoPlaySlides(slidesContainer) }, 4000, 40000);
-		var nextLinkHref= jQuery("#content a[rel='next']").attr('href');
-		var prevLinkHref= jQuery("#content a[rel='prev']").attr('href');
+    //AutoPlay Slides
+    doRecursively( function(){ autoPlaySlides(slidesContainer) }, 4000, 40000);
 
-		var nextTag = jQuery("<a>");
-		    nextTag.attr("href", nextLinkHref);
-		    nextTag.data("overlay-slug","projects");
-		    nextTag.text("Next Project");
-		    nextTag.addClass("overlay projectControl nextProject");
-		    nextTag.prependTo( jQuery("#projectsOverlayContent #content") );
+    //Adjust Slides on resize
+	jQuery(window).resize(_.debounce(function(){
+		updateSlides( slidesContainer, viewHeight, thumbsContent );
+	}, 50));
 
-		var prevTag = jQuery("<a>");
-		    prevTag.attr("href", prevLinkHref);
-		    prevTag.data("overlay-slug","projects");
-		    prevTag.text("Prev Project");
-		    prevTag.addClass("overlay projectControl prevProject");
-		   	prevTag.prependTo( jQuery("#projectsOverlayContent #content") );
 
-		});
+    //Set Next and Previous Links
+    var nextLinkHref= jQuery(".hide a[rel='next']").attr('href');
+	var prevLinkHref= jQuery(".hide a[rel='prev']").attr('href');
 
+    if (nextLinkHref){
+		jQuery("#nextProject").attr("href", nextLinkHref );
+    }
+    else{
+        jQuery("#nextProject").css("display", "none" );
+    }
+
+    if (prevLinkHref){
+		jQuery("#prevProject").attr("href", prevLinkHref );
+    }
+    else{
+        jQuery("#prevProject").css("display", "none" );
+    }
+
+});//doc ready
 
 </script>
-
 
 <div id="projectsGallery" class="dragend-container">
 		<!-- slides created dynamically -->
 </div>
 
-<div id="projectsContent" class="contentWidth floatfix">
-
-    <!-- Use WP function to output hrefs && replace with custom overlay links -->
-    <div class="hideWordPressOutput" style="display:none">
-    	<?php next_post_link('%link'); ?>
-    	<?php previous_post_link('%link'); ?>
+<div id="thumbsScroll">
+    <!-- horizontal scroll container -->
+    <div id="thumbsContainer">
+        <!-- thumbs created dynamically -->
     </div>
+</div>
+
+<div id="projectControls" class="clearfix">
+    <!-- Use WP function to output hrefs && replace with custom overlay links -->
+    <div class="hide">
+        <?php next_post_link('%link'); ?>
+        <?php previous_post_link('%link'); ?>
+    </div>
+    <a href="" id="prevProject" class="overlay projectControl" data-overlay-slug="projects">Prev Project</a>
+    <a href="" id="nextProject" class="overlay projectControl" data-overlay-slug="projects">Next Project</a>
+</div>
+
+<div id="projectsContent" class="contentWidth floatfix">
 
 	<h2>Project Details</h2>
 	<?php
@@ -66,7 +85,6 @@
     ?>
       <a href="#" id="btn-to-top" class="scrollToTop icon-circle-up"></a>
 
+      <!-- remove second scroll bar if overlay is tall -->
+      <style> html{overflow:hidden!important;} </style>
 </div>
-
-<!-- remove second scroll bar if overlay is tall -->
-<style> html{overflow:hidden!important;} </style>

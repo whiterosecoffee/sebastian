@@ -1,23 +1,44 @@
 /*!
 Theme Name: Velcro
-Description: No Straps Needed.
+Theme URI: http://discoverwebdev.ca/velcro
 Author: Nathan Bowman
+Author URI: http://discoverwebdev.ca/
+Description: A minimalist 'bootstrap less' framework for responsive child themes.Velco
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: one-column, featured-images
+Text Domain: velcro
 */
+@import "settings";
+@import "icons/icons";
+@import "mixins";
+@import "reset";
+@import "velcro";
+@import "components";
+@import "templates";
+@import "modals";
+@import "wordpress";
 
-@import "mixins/mixins";
+//Style up any modals you've used
+#slideMenu {
+    width: 520px;
+    left: -520px;
+}
 
-@import "partials/reset";
-@import "partials/testing";
+//Example Project Usage
+#header {
+    @extend %headerAbsolute;
+}
 
-@import "partials/coreFramework";
-@import "partials/coreNavigation";
-//@import "partials/coreNavigationButtons";
+#content {
+    @extend %pageTitleDefaults;
 
-//PLUGINS
-@import "plugins/dragend";
-@import "plugins/featherlight";
-@import "plugins/projectsCPT";
-@import "plugins/isotype";
+    #banner {
+        @extend %sloganBtn;
+    }
+}
 
-//RESORUCES
-@import "resources/icomoon";
+#footer {
+    @extend %footerDefaults;
+}

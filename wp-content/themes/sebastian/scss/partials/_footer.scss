@@ -1,58 +1,68 @@
-
-
-#footerOut {
+#footerContent {
+    text-align      : center;
     background-color: $tertiaryBgColor;
-    @include bp(small) {padding: 1rem 0;}
-}
-    .home.portrait #footerOut, .contact.portrait #footerOut{position:absolute; bottom:0; left:0; width:100%;}
-    .contact #footerOut, .services #footerOut {
-        @include bp(afterSmall) {position:absolute; top:100%; left:0; width:100%;}
-
+    @include bp(small) {
+        padding: 1rem 0;
     }
 
-#footerContent {
-    text-align: center;
-    h2, h3 {
+    h2,
+    h3 {
         font-weight: 300;
-        color: #444;
+        color      : #999;
     }
 
     h2 {
-        @include bp(smallPortrait) {font-size: 1.35rem;}
-        @include bp(smallLandscape) {font-size: 1.35rem;}
-        @include bp(afterSmall) {font-size: 1.2rem;}
+        line-height: 1.4;
+        @include bp(small) {
+            font-size: 1.2rem;
+        }
+        @include bp(afterSmall) {
+            font-size : 1.5rem;
+            margin-top: 1.5rem;
+        }
+
         .icon {
             font-size: .75em;
         }
-    }
+    }//h2
 
     h3 {
-        @include bp(smallPortrait) {font-size: .9rem;}
-        @include bp(smallLandscape) {font-size: 1.35rem;}
-        @include bp(afterSmall) {font-size: .75rem; margin-bottom: .25rem;}
-
-    }
+        @include bp(smallPortrait) {
+            font-size: .75rem;
+        }
+        @include bp(smallLandscape) {
+            font-size    : .9rem;
+            margin-bottom: .25rem;
+        }
+        @include bp(afterSmall) {
+            font-size    : 1rem;
+            margin-bottom: .35rem;
+        }
+    }//h3
 
     .footerKeywords {
-        font-size: .85rem;
-        margin-top: 1rem;
-        color: #555;
-        @include bp(smallPortrait) {font-size: .65rem; margin: 1rem;}
-        @include bp(afterSmall) {font-size: .85rem; margin: 1rem;}
-     }
+        max-width: 65%;
+        margin   : .5rem auto 1rem;
+        color    : #999;
+        @include bp(small) {
+            font-size: .7rem;
+        }
+        @include bp(afterSmall) {
+            font-size: .85rem;
+        }
+    }//.footerKeywords
 
     .mailto {
         padding: .5rem;
         display: inline-block;
-        color: #666;
+        color  : #ddd;
         .icon {
-            @include bp(small) {font-size: .65em;}
-            @include bp(afterSmall) {font-size: .9em;}
+            @include bp(small) {
+                font-size: .65em;
+            }
+            @include bp(afterSmall) {
+                font-size: .9em;
+            }
         }
-    }
-
-    .separator {
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
+    }//.mailto
 }

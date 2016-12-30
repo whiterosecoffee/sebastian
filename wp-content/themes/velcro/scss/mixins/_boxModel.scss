@@ -1,16 +1,6 @@
-// size()
-// Prints out the width and height of an element.
-//
-// $width - String or number representation of the element width
-// $height - String or number representation of the element height
-// false if it is the same as the width
-//
-// Examples
-// @include size(10px);
-// @include size(10px, 30px);
-//
-
-@mixin size($width, $height: false) {
-  width: $width;
-  height: if($height, $height, $width);
+@mixin rounded($tl : 4px, $tr : 4px, $br: 4px, $bl: 4px) {
+	-webkit-border-radius: $tl $tr $br $bl;
+	-moz-border-radius   : $tl $tr $br $bl;
+	-o-border-radius     : $tl $tr $br $bl;
+	border-radius        : $tl $tr $br $bl;
 }

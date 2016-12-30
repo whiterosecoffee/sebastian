@@ -1,17 +1,27 @@
 /*!
 Theme Name: Sebastian
-Template: Velcro
+Template: velcro
+Theme URI: http://discoverwebdev.ca/portfolio
 Author: Nathan Bowman
+Author URI: http://discoverwebdev.ca/
+Description: A mutimedia portfolio blog with adaptive image loading.
 Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: one-column, two-columns, right-sidebar, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
+
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
 */
 
 $parentTheme: Velcro;
-
 @import "child-settings";
 @import "../../velcro/scss/style";
 
 //PARTIALS
 @import "partials/header";
+@import "partials/contactBanner";
 @import "partials/footer";
 
 //PAGES
@@ -19,26 +29,25 @@ $parentTheme: Velcro;
 @import "pages/projects";
 @import "pages/contact";
 
-//.hide-small-screen .hide-medium-screen
+//SECTIONS
+@import "sections/pageTitle";
 
+//.hide-small-screen .hide-medium-screen
 // scss-lint:disable SelectorFormat
 
 #menu-main {
     @extend %mobileMenu;
 }
 
-.home #navOpenBtn.icon {color: white;}
-
+.home #navOpenBtn.icon {
+    color: white;
+}
 @include bp(afterSmall) {
     //Full page background images
-    .landscape.contact #navOpenBtn.icon,
-    .landscape.services #navOpenBtn.icon,
+    .landscape.about-us #navOpenBtn.icon,
     .landscape.concept #navOpenBtn.icon,
-    .landscape.about-us #navOpenBtn.icon {color: white;}
-
-    .contact #foottercontent,
-    .concept #foottercontent,
-    .services #foottercontent,
-    .about-us #foottercontent { display: none; }
+    .landscape.contact #navOpenBtn.icon,
+    .landscape.services #navOpenBtn.icon {
+        color: white;
+    }
 }
-

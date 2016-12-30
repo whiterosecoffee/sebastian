@@ -15,13 +15,13 @@ add_action( 'wp_enqueue_scripts', 'childStyles' , 98);
 
 //Register and enqueue ** ADMIN ** styles & scripts.
 function child_enqueue_custom_admin_style() {
-        wp_register_style( 'child_wp_admin_css', get_stylesheet_directory_uri() . '/inc/css/child-admin.css', '1.0.0', false );
-        wp_enqueue_style( 'child_wp_admin_css' );
+    wp_register_style( 'child_wp_admin_css', get_stylesheet_directory_uri() . '/inc/css/child-admin.css', '1.0.0', false );
+    wp_enqueue_style( 'child_wp_admin_css' );
 }
 
 function child_enqueue_custom_admin_script() {
-        wp_register_script( 'child_wp_admin_js', get_stylesheet_directory_uri() . '/inc/js/child-admin.js', '1.0.0' , false);
-        wp_enqueue_script( 'child_wp_admin_js' );
+    wp_register_script( 'child_wp_admin_js', get_stylesheet_directory_uri() . '/inc/js/child-admin.js', '1.0.0' , false);
+    wp_enqueue_script( 'child_wp_admin_js' );
 }
 
 add_action( 'admin_enqueue_scripts', 'child_enqueue_custom_admin_style' );

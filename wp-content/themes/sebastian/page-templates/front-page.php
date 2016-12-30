@@ -1,15 +1,37 @@
 <?php //Template Name: Home Page - Gallery ?>
 <?php get_header(); ?>
+<?php $thisJsonURL = home_url() . '/wp-json/velcro/v1/home-gallery/'; ?>
 
-    <?php //Load Gallery Plugin.  Init JS in project.js ?>
-    <?php include_once(get_template_directory().'/plugins/galleryMetabox/jsonReturnGallery.php'); ?>
+<script>
 
-    <div id="homeGallery" class="galleryContainer dragend-container">
-    	<!-- slides created dynamically -->
-    </div>
+	getJson('<?php echo $thisJsonURL; ?>').then(function(result) {
+		// Code depending on result
+		slidesContent = getImagesByScreenSize(result, 640, 1024);
+		elementReady("homeGallery", function(){
+			createDragendSlides(
+				'homeGallery',  //parentContainer
+				slidesContent, 		//slidesContent
+				'background-image' 	//slideType
+			);
+		});
+	});//getJson()
 
-    <?php include_once(get_stylesheet_directory().'/views/pageTitle.php'); ?>
-    <?php include_once(get_stylesheet_directory().'/ng-apps/quotes/ng-quotes-template.php'); ?>
+	jQuery(document).ready(function(){
+		initDragendGallery(
+			'#homeGallery',  	//parentContainer
+			viewHeight			//galleryHeight
+		);
+	});
+
+</script>
+
+<div id="contentWrapper" class="wrapper">
+	<div id="homeGallery">
+		<?php get_template_part('sections/image-gallery'); ?>
+	</div>
+    <?php get_template_part('views/page-title'); ?>
+    <?php get_template_part('sections/concept'); ?>
+
+</div><!-- #contentWrapper -->
 
 <?php get_footer(); ?>
-<!-- Core Single Projects Template -->

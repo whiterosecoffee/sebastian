@@ -1,67 +1,81 @@
-.home .aboutUsDescription {
-    max-width: 45%;
-    margin: 3rem auto;
-    font-size: .85rem;
-    text-align: center;
-    line-height: 1.65;
-}
-
-.home .services {
-    color: #333;
-    text-align: center;
-    @include bp(afterSmall) {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 80%;
+#concept {
+    margin        : 1rem auto 0;
+    text-align    : center;
+    padding-top   : 1rem;
+    padding-bottom: 3.5rem;
+    border-bottom : 1px solid rgba(128, 128, 128, .35);
+    @include bp(small) {
+        padding-top   : .5rem;
+        padding-bottom: 1.5rem;
+    }
+    @include bp(medium) {
+        padding-top   : 1rem;
+        padding-bottom: 2.5rem;
+    }
+    @include bp(afterMedium) {
+        max-width     : 80%;
+        padding-bottom: 2.5rem;
     }
 
-    .service {
-        padding: 2rem;
-
-        h4 {
-            margin-top: 0;
+    h1 {
+        color      : $secondaryTextColor;
+        font-size  : 42px;
+        font-weight: normal;
+        @include bp(small) {
+            margin   : 0;
+            font-size: 32px;
+        }
+        @include bp(afterSmall) {
+            margin   : 2rem;
+            font-size: 42px;
         }
 
-        h3 {
-            clear: both;
-            margin-top: 2rem;
-            text-align: center;
-            font-weight: 400;
-            font-size: 22px;
-        }
+    }
 
-        p {
-            font-size: .85rem;
+    .separator {
+        @include bp(small) {
+            width: 50%;
+        }
+        @include bp(afterSmall) {
+            width: 20%;
         }
     }
-}
 
-#homeTestimonials {
-    max-width: 90%;
-    margin: 45px auto;
-    line-height: 4.5rem;
+    #conceptIcons {
+        .conceptIcon {
+            h3 {
+                color      : $secondaryTextColor;
+                font-weight: normal;
+                @include bp(small) {
+                    font-size    : 1.25em;
+                    margin-bottom: 2rem;
+                }
+                @include bp(afterSmall) {
+                    font-size    : 1.5em;
+                    margin-bottom: 3.5rem;
+                }
+            }
 
-    h2 {
-        display: inline-block;
-        width: 35%;
-        font-size: 4.5rem;
-        font-weight: 300;
-        margin-top: 0;
-        margin-bottom: 0;
-        vertical-align: middle;
+            img {
+                width    : 100%;
+                max-width: 150px;
+                margin   : 0 auto;
+            }
+        }
     }
+    //.conceptIcons
 
     p {
-        display: inline-block;
-        width: 60%;
-        font-size: 1rem;
-        font-style: italic;
-        vertical-align: middle;
-
-        cite {
-            font-style: normal;
-            font-weight: bold;
+        clear : both;
+        margin: 0 auto;
+        @include bp(small) {
+            width: 75%;
         }
-
+        @include bp(afterSmall) {
+            width    : 70%;
+            font-size: 1.15em;
+        }
     }
+
 }
+//#concept
