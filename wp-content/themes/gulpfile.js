@@ -88,7 +88,14 @@ gulp.task( 'styles', function () {
 
 	gulp.task( 'styles-velcro', function () {
 		gulp.src(  parent + '/scss/style.scss' )
-	    .pipe( sass() )
+	    .pipe( sourcemaps.init() )
+        .pipe( sass() )
+        .pipe( sourcemaps.write() )
+
+	    /*.pipe(cleanCSS({debug: true}, function(details) {
+	        console.log(details.name + ': ' + details.stats.originalSize);
+	        console.log(details.name + ': ' + details.stats.minifiedSize);
+	    }))*/
 		.pipe( gulp.dest( parent ) )
 	    .pipe( notify( {
 	        message: 'TASK: "Velcro Styles" Completed! 💯',

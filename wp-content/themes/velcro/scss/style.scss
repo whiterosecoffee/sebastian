@@ -1,4 +1,4 @@
-/*!
+/*
 Theme Name: Velcro
 Theme URI: http://discoverwebdev.ca/velcro
 Author: Nathan Bowman
@@ -15,16 +15,10 @@ Text Domain: velcro
 @import "mixins";
 @import "reset";
 @import "velcro";
-@import "components";
 @import "templates";
+@import "sections";
 @import "modals";
 @import "wordpress";
-
-//Style up any modals you've used
-#slideMenu {
-    width: 520px;
-    left: -520px;
-}
 
 //Example Project Usage
 #header {
@@ -32,11 +26,23 @@ Text Domain: velcro
 }
 
 #content {
-    @extend %pageTitleDefaults;
+    #imageGallery {
+        position: relative;
+    }
 
-    #banner {
+    #pageTitle {
+        @extend %pageTitleDefaults;
+    }
+
+    #quotesContainer {
+        position: relative;
+        max-height: 130px;
+    }
+
+    #contactBanner {
         @extend %sloganBtn;
     }
+
 }
 
 #footer {

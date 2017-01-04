@@ -74,23 +74,8 @@ function addMenuOpenClass(){
 function removeMenuOpenClass(){
 	removeClass(html, 'mobileMenuOpen');
 	addClass(html, 'mobileMenuClosed');
-    navClasses();
+    navClasses();//check if we need to put back 'desktopMenu' or 'mobileMenu'
     menuHeight();
-}
-
-//set 'scroll' class when Xpx distance from top
-//FIX: make work with element param
-function scrollMenu(element, distance){
-    distance = distance || 25;
-
-    var thisScrollValue = getScrollValue();
-
-    if ( thisScrollValue > distance) {
-	    addClass(html, 'scrollMenu');
-	}
-	else{
-        removeClass(html, 'scrollMenu');
-	}
 }
 
 //set portrait / landscape class

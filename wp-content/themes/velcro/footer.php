@@ -12,7 +12,7 @@
 ?>
     </main><?php //#content ?>
 
-    <footer id="footer" class="scrollTopStop floatfix">
+    <footer id="footer" class="floatfix">
 
         <?php
         /**
@@ -22,7 +22,7 @@
         *
         * @param None
         */
-        velcro_get_template_part('footer/footer-template.php');
+        velcro_get_template_part('content/footer.php');
         ?>
 
     </footer><?php //#footer ?>

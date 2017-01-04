@@ -25,7 +25,7 @@
  */
 
 // Load the Velcro Core framework and theme files.
-require_once( get_template_directory() . '/velcro-library/velcro.php' );
+require_once( get_template_directory() . '/velcro/velcro.php' );
 //require_once( $velcro_base_dir . 'inc/custom-background.php' );
 //require_once( $velcro_base_dir . 'inc/custom-header.php'     );
 //require_once( $velcro_base_dir . 'inc/theme.php'             );
