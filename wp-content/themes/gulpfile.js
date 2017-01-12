@@ -107,7 +107,7 @@ gulp.task( 'styles', function () {
 //Development JS - Concat and Sourcemap - No Minification
 //++ ADD LINTING
 gulp.task( 'js', function () {
-	gulp.src( [ jsFiles, parent + '/js/*.js' ] )
+	gulp.src( [ jsFiles, parent + '/js/velcro.js', parent + '/js/libraries/*.js', parent + '/js/*.js' ] )
     .pipe( sourcemaps.init() )
     .pipe( concat( 'project.js' ) )
     .pipe( sourcemaps.write() )

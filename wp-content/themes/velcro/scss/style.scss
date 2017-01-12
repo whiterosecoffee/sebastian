@@ -15,19 +15,50 @@ Text Domain: velcro
 @import "mixins";
 @import "reset";
 @import "velcro";
+@import "components";
 @import "templates";
 @import "sections";
 @import "modals";
 @import "wordpress";
 
+#modals {
+    width: 100%;
+    max-width: 100%;
+}
+
+#slideMenu {
+    max-width: 100%;
+}
+
+#nav {
+    max-width: 100%;
+}
+
+%absolutely {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
 //Example Project Usage
+/*
+.home #header {
+    @extend %absolutely;
+}
+
 #header {
-    @extend %headerAbsolute;
+    @extend %headerFloat;
 }
 
 #content {
     #imageGallery {
         position: relative;
+    }
+
+    #concept {
+        @extend %conceptDefaults;
     }
 
     #pageTitle {
@@ -42,9 +73,9 @@ Text Domain: velcro
     #contactBanner {
         @extend %sloganBtn;
     }
-
 }
 
 #footer {
     @extend %footerDefaults;
 }
+*/

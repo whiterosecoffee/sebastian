@@ -23,10 +23,11 @@ function fixToBottom(target){
             'top' : 'auto'
         });
     }
+
     //get new values
-    var targetBox = box(target);
-    var targetBottom = targetBox.offset.bottom;
+    var targetBottom = getOffsetBottom(target);
     //if the target isn't already at the bottom
+    //console.log(targetBottom);
     if(targetBottom < viewHeight) {
         //check if there is enough space to fit the target
         //get previous sibling position
@@ -46,7 +47,6 @@ function fixToBottom(target){
             }
         }
     }
-
 }
 
 function navClasses() {
@@ -93,12 +93,12 @@ function getOrientationClass(){
 }
 
 function setDimensions(target, targetHeight, aspRange){
-    console.log("setDimensions() - target: " + target);
-    console.log("setDimensions() - targetHeight: " + targetHeight);
-    console.log("setDimensions() - aspRange: " + aspRange);
-
-    matchHeight(target, targetHeight);
-    maxSizeByAsp(target, aspRange);
+    jQuery.when(
+        matchHeight(target, targetHeight)
+    )
+    .then(
+        maxSizeByAsp(target, aspRange)
+    );
 }
 
 function moveOnOrientation(target, destination, landscape, portrait){

@@ -1,62 +1,61 @@
 // BREAK POINTS
-$smallPortrait            : 414px;
-$smallLandscape           : 767px;
-$mediumLandscape          : 1280px;
+$smallPortrait: 414px;
+$smallLandscape: 767px;
+$mediumLandscape: 1280px;
 
 // STRUCTURE
-$contentWidth             : 1280px;
-$contentPadding           : 2.5em;
+$contentWidth: 1280px;
+$contentPadding: 2.5em;
 
 // FONTS
 //@import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
 //@import url( 'https://fonts.googleapis.com/css?family=Montserrat');
 
 //@include font-face($primaryChildFont, 'fonts/#{$primaryChildFont}', 300, normal);
-$primaryChildFont         : 'open-sans', sans-serif;
-$secondaryChildFont       : 'Montserrat', sans-serif;
+$primaryChildFont: 'open-sans', sans-serif;
+$secondaryChildFont: 'Montserrat', sans-serif;
 
 // COLOURS
-$primaryTextColor         : #425254; //dark grey
-$secondaryTextColor       : #FF6E00; //orange
-$tertiaryTextColor        : #2AADDE; //blue
+$primaryTextColor: #3a3c40; //dark grey
+$secondaryTextColor: #686c79; //medium grey
+$tertiaryTextColor: secondaryTextColor; //blue
 
-$primaryBgColor           : white; // white
-$secondaryBgColor         : $secondaryTextColor; //orange e97017
-$tertiaryBgColor          : #2a2a2a; //slate dark grey
+$primaryBgColor: white; // white
+$secondaryBgColor: $secondaryTextColor;
+$tertiaryBgColor: $primaryTextColor;
 
-$contentLinkColor         : $secondaryBgColor;
-$contentLinkHoverColor    : $primaryTextColor;
-
-$primaryOutlineColor      : $primaryTextColor;
+$contentLinkColor: $secondaryBgColor;
+$contentLinkHoverColor: $primaryTextColor;
+$primaryOutlineColor: $primaryTextColor;
 
 //HEADER
-$headerTextColor          : $primaryTextColor;
-$headerBgColor            : transparent;
+$headerTextColor: $primaryTextColor;
+$headerBgColor: transparent;
 
 // NAVIGATION
-$mobileNavOnly            : true; //Set navigation to display hamburger style menu on all sizes
-$menuPadding              : .5em;
-$menuLiMargin             : .65em;
+$mobileNavOnly: true; //Set navigation to display hamburger style menu on all sizes
+$menuPadding: .5rem;
+$menuLiMargin: .65rem;
 
-$mainMenuFont             : 'open-sans';
-$mainMenuFontSize         : 1.15em;
-$mainMenuFontWeight       : 300;
+$mainMenuFont: 'open-sans';
+$mainFontSize: 1rem;
+$mainMenuFontWeight: 300;
 
 //OPEN & CLOSE BTBS
-$mobileMenuOpenBtnColor   : #777;
-$mobileMenuCloseBtnColor  : white;
+$mobileMenuOpenBtnColor: #777;
+$mobileMenuCloseBtnColor: white;
 
 //MOBILE MENU
-$mobileMenuPadding        : 1.5em;
-$mobileMenuLiMargin       : 1.25em;
-$mobileMenuBgColor        : $tertiaryBgColor;
-$mobileMenuLinkColor      : white;
-$mobileMenuLinkHoverColor : $secondaryTextColor;
+$mobileMenuPadding: 2rem;
+$mobileMenuLiMargin: 1.5rem;
+$mobileMenuBgColor: #242933;
+$mobileMenuLinkColor: white;
+$mobileMenuLinkHoverColor: #cbd0da;
 
 //DESKTOP MENU
-$desktopMenuPadding       : .5em;
-$desktopMenuMargin        : .65em;
-$desktopMenuColor         : $secondaryBgColor;
-$desktopMenuBgColor       : $tertiaryBgColor;
-$desktopMenuLinkColor     : #425254;
+$desktopMenuPadding: .5rem;
+$desktopMenuMargin: .65rem;
+$desktopMenuColor: $secondaryBgColor;
+$desktopMenuBgColor: $tertiaryBgColor;
+$desktopMenuLinkColor: #425254;
 $desktopMenuLinkHoverColor: $secondaryBgColor;

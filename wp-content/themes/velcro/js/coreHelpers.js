@@ -1,6 +1,3 @@
-'use strict';
-/*jshint -W117 */
-
 function hasClass(ele,cls) {
 	return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|jQuery)'));
 }
@@ -32,27 +29,24 @@ function minW(target, value){
 	jQuery(target).css('min-width', value);
 }
 
-function matchHeight(ele, targetHeight){
-    var eleHeight;
-    if (!targetHeight){
-		eleHeight = viewHeight;
-	}
-	else {
-		eleHeight = targetHeight;
-	}
-	return jQuery(ele).height(eleHeight);
+function matchHeight(target, targetHeight){
+    //console.log('matchHeight() - viewHeight ' + window.innerHeight);
+    targetHeight = targetHeight ? targetHeight : window.innerHeight;
+	return jQuery(target).height(targetHeight);
 }
 
 function maxSizeByAsp(target, minAsp, maxAsp){
-    minAsp ? minAsp : minAsp = 1.6;
-    maxAsp ? maxAsp : maxAsp = 2.2;
+    minAsp = minAsp ? minAsp : 1.6;
+    maxAsp = maxAsp ? maxAsp : 2.1;
 
 	jQuery(target).css('max-height', 'none');
 	jQuery(target).css('min-height', 0);
 
-	var targetAsp = jQuery(target).width() / jQuery(target).height();
+    var viewWidth = jQuery(window).width();
+    var viewHeight = jQuery(window).height();
+	var targetAsp = viewWidth / viewHeight;
 
-	//if WIDE / SHORT
+    //if WIDE / SHORT
 	if (targetAsp > maxAsp){
 		minH(target, viewWidth / maxAsp);
 	}

@@ -21,33 +21,49 @@ $parentTheme: Velcro;
 
 //PARTIALS
 @import "partials/header";
-@import "partials/contactBanner";
 @import "partials/footer";
 
 //PAGES
 @import "pages/home";
-@import "pages/projects";
 @import "pages/contact";
 
-//SECTIONS
-@import "sections/pageTitle";
+//SINGLE TEMPLATES
+@import "singles/singleProject";
 
 //.hide-small-screen .hide-medium-screen
 // scss-lint:disable SelectorFormat
 
-#menu-main {
-    @extend %mobileMenu;
+.home #header {
+    @extend %absolutely;
 }
 
-.home #navOpenBtn.icon {
-    color: white;
+#header {
+    @extend %headerFloat;
 }
-@include bp(afterSmall) {
-    //Full page background images
-    .landscape.about-us #navOpenBtn.icon,
-    .landscape.concept #navOpenBtn.icon,
-    .landscape.contact #navOpenBtn.icon,
-    .landscape.services #navOpenBtn.icon {
-        color: white;
+
+#content {
+    #imageGallery {
+        position: relative;
     }
+
+    #concept {
+        @extend %conceptDefaults;
+    }
+
+    #pageTitle {
+        @extend %pageTitleDefaults;
+    }
+
+    #quotesContainer {
+        position: relative;
+        max-height: 130px;
+    }
+
+    #contactBanner {
+        @extend %sloganBtn;
+    }
+}
+
+#footer {
+    @extend %sebastianFooter;
 }

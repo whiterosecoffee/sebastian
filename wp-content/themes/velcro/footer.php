@@ -22,7 +22,7 @@
         *
         * @param None
         */
-        velcro_get_template_part('content/footer.php');
+        velcro_get_template_part('footer.php');
         ?>
 
     </footer><?php //#footer ?>

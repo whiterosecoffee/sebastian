@@ -14,4 +14,4 @@
 </div>
 
 <?php get_footer(); ?>
-<!-- Child Theme Index Template -->
+<!-- Sebastian Theme Index Template -->
