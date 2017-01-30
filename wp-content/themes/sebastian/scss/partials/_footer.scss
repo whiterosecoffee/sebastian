@@ -1,4 +1,5 @@
 %sebastianFooter {
+    overflow: auto;
     text-align: center;
     background-color: $tertiaryBgColor;
     @include bp(small) {

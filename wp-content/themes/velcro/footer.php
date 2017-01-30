@@ -7,27 +7,25 @@
  * See documentation on footer.php
  *
  * @package velcro
- *
+ * @since 1.0
+ * @param None
 */
 ?>
-    </main><?php //#content ?>
+    <!--#content -->
+    </main>
 
-    <footer id="footer" class="floatfix">
+    <footer id="footer" class="fullWidth floatfix">
 
         <?php
         /**
-        * Footer Template controls project specific footer content.
-        *
-        * Load an existing template or overwrite with child theme.
-        *
-        * @param None
+        * Load a template or overwrite with child theme /content/footer.php.
         */
-        velcro_get_template_part('footer.php');
+        include(velcro_component('footer'));
         ?>
 
-    </footer><?php //#footer ?>
-
-</div><?php //#wrapper ?>
+    </footer>
+<!--#wrapper -->
+</div>
 
 <?php wp_footer(); ?>
 </body>

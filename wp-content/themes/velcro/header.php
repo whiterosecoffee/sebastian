@@ -15,8 +15,8 @@
 */
 ?>
 <!DOCTYPE html>
-<?php velcro_get_template_part('document/html.php'); ?>
-<?php velcro_get_template_part('document/head.php'); ?>
-<?php velcro_get_template_part('document/body.php'); ?>
-<?php velcro_get_template_part('modals.php'); ?>
-<?php velcro_get_template_part('header.php'); ?>
+<?php include(velcro_component('document', 'html')); ?>
+<?php include(velcro_component('document', 'head')); ?>
+<?php include(velcro_component('document', 'body')); ?>
+<?php include(velcro_component('modals')); ?>
+<?php include(velcro_component('header')); ?>

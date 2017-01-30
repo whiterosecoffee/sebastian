@@ -1,13 +1,8 @@
 <?php get_header(); ?>
-	<div id="content" class="content contentPadding floatfix">
+	<div id="content" class="contentWidth contentPadding floatfix">
 
-		<h2 class="pageTitle"><?php echo (the_parent_slug()); ?></h2>
-		<?php
-	        $page = $post->ID;
-	        $page_articleDate = get_page($page);
-	        $content = apply_filters('the_content', $page_articleDate->post_content);
-	        echo $content;
-	    ?>
+        <?php include(velcro_component('page','title')); ?>
+		<?php include(velcro_component('wp', 'page-content'); ?>
 
 	</div>
 <?php get_footer(); ?>

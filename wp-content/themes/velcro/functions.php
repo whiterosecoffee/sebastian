@@ -47,6 +47,8 @@ add_action( 'after_setup_theme', 'velcro_theme_setup', 5 );
  * @return void
  */
 function velcro_theme_setup(){
+    add_theme_support( 'post-thumbnails' );
+
 /*
 	// Theme layouts.
 	add_theme_support( 'theme-layouts', array( 'default' => is_rtl() ? '2c-r' :'2c-l' ) );
@@ -66,7 +68,8 @@ function velcro_theme_setup(){
 	// Automatically add feed links to <head>.
 	add_theme_support( 'automatic-feed-links' );
 
-	// Post formats.
+
+    // Post formats.
 	add_theme_support(
 		'post-formats',
 		array( 'aside', 'audio', 'chat', 'image', 'gallery', 'link', 'quote', 'status', 'video' )
