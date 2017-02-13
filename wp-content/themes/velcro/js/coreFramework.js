@@ -25,14 +25,19 @@ function fixToBottom(target){
     }
 
     //get new values
-    var targetBottom = getOffsetBottom(target);
+    var targetBottom = jQuery('#footer').offset().top + jQuery('#footer').outerHeight(true);
     //if the target isn't already at the bottom
     //console.log(targetBottom);
+    viewHeight = jQuery(window).height();
     if(targetBottom < viewHeight) {
         //check if there is enough space to fit the target
         //get previous sibling position
-        var eleAbove = getFamily(target, 'prev');
-        var eleAboveBottom = getOffset(eleAbove).bottom;
+        //var eleAbove = getFamily(target, 'prev');
+        //var eleAboveBottom = getOffset(eleAbove).bottom;
+
+        var ele = jQuery('#footer');
+        var eleAbove = ele.prev();
+        var eleAboveBottom = eleAbove.offset().top + eleAbove.outerHeight(true);
         var availableSpace = viewHeight - eleAboveBottom;
         var targetHeight = getHeight(target);
         if ( availableSpace > targetHeight ){
@@ -47,6 +52,8 @@ function fixToBottom(target){
             }
         }
     }
+    var wrapHeight = jQuery('#wrapper').height();
+    jQuery(body).css('min-height', wrapHeight);
 }
 
 function navClasses() {

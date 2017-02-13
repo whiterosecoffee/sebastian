@@ -1,10 +1,18 @@
-// BREAK POINTS
+$primaryChildFont: 'open-sans', sans-serif;
+$secondaryChildFont: 'Montserrat', sans-serif;
+
+// COLOURS
+$primaryTextColor: #3a3c40; //dark grey
+$secondaryTextColor: #686c79; //medium grey
+$tertiaryTextColor: secondaryTextColor;
+
+/* BREAK POINTS
 $smallPortrait: 414px;
 $smallLandscape: 767px;
 $mediumLandscape: 1280px;
 
 // STRUCTURE
-$contentWidth: 1280px;
+$contentWidth: 980px;
 $contentPadding: 2.5em;
 
 // FONTS
@@ -15,10 +23,7 @@ $contentPadding: 2.5em;
 $primaryChildFont: 'open-sans', sans-serif;
 $secondaryChildFont: 'Montserrat', sans-serif;
 
-// COLOURS
-$primaryTextColor: #3a3c40; //dark grey
-$secondaryTextColor: #686c79; //medium grey
-$tertiaryTextColor: secondaryTextColor; //blue
+
 
 $primaryBgColor: white; // white
 $secondaryBgColor: $secondaryTextColor;
@@ -59,3 +64,4 @@ $desktopMenuColor: $secondaryBgColor;
 $desktopMenuBgColor: $tertiaryBgColor;
 $desktopMenuLinkColor: #425254;
 $desktopMenuLinkHoverColor: $secondaryBgColor;
+*/

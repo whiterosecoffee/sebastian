@@ -3,14 +3,23 @@
 
 jQuery(document).ready(function(){
 
-
 	//HOME PAGE - Dragend Image Gallery
 	if ( jQuery('html').data('page-slug') == 'home' ){
-
-        jQuery(window).on('resize', homeResize());
-
+        homeResize();
+        jQuery(window).resize(function(){
+            homeResize();
+        });
 		function homeResize(){
-	        console.log("project.js/home:resize H: " + viewHeight + " W: " + viewWidth);
+	        console.log("project.js/home:resize");
+            if(jQuery('#homeGallery').height() == jQuery(window).height()){
+                jQuery('#pageTitle').appendTo('#homeGallery');
+                jQuery('#homeGallery').css('position','relative');
+                jQuery('#pageTitle').addClass('galleryBottom');
+            }
+            else{
+                jQuery('#pageTitle').insertAfter('#homeGallery');
+                jQuery('#pageTitle').removeClass('galleryBottom');
+            }
 
 		}
 
@@ -31,14 +40,6 @@ jQuery(document).ready(function(){
 
     //CONTACT PAGE -
     if ( jQuery('html').data('page-slug') == 'contact'){
-        //New Dragend Class
-		jQuery("#quoteRotator").dragend({});
 
-        //AutoPlay Quotes
-        doRecursively( function(){
-            if (mouseDown === false){
-                autoPlaySlides("#quoteRotator");
-            }
-        }, 2750, 33000);
     }//contact page
 });

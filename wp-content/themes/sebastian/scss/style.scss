@@ -1,20 +1,14 @@
-/*!
+/*
 Theme Name: Sebastian
 Template: velcro
-Theme URI: http://discoverwebdev.ca/portfolio
 Author: Nathan Bowman
 Author URI: http://discoverwebdev.ca/
-Description: A mutimedia portfolio blog with adaptive image loading.
+Description: A minimalist portfolio site
 Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: one-column, two-columns, right-sidebar, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
-
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
+Text Domain: sebastian
 */
-
 $parentTheme: Velcro;
 @import "child-settings";
 @import "../../velcro/scss/style";
@@ -22,48 +16,81 @@ $parentTheme: Velcro;
 //PARTIALS
 @import "partials/header";
 @import "partials/footer";
+@import "partials/nav";
 
 //PAGES
 @import "pages/home";
+@import "pages/projects";
 @import "pages/contact";
 
 //SINGLE TEMPLATES
 @import "singles/projects";
+
+//Components
+@import "components/concept";
 
 //.hide-small-screen .hide-medium-screen
 // scss-lint:disable SelectorFormat
 
 .home #header {
     @extend %absolutely;
+
+    .pageName {
+        display: none;
+    }
 }
 
 #header {
-    @extend %headerFloat;
+    @extend %headerAbsolute;
+
+    .pageName {
+        width: 100%;
+        margin: 3rem 0 1.5rem;
+        text-align: center;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+
+        &::before {
+            content: ' - ';
+        }
+
+        &::after {
+            content: ' - ';
+        }
+    }
+
+    .pageName.about-us,
+    .pageName.concept {
+        @include bp(mediumLandscape) {
+            color: white;
+        }
+        @include bp(large) {
+            color: white;
+        }
+    }
 }
-
-#content {
-    #imageGallery {
-        position: relative;
-    }
-
-    #concept {
-        @extend %conceptDefaults;
-    }
-
-    #pageTitle {
-        @extend %pageTitleDefaults;
-    }
-
-    #quotesContainer {
-        position: relative;
-        max-height: 130px;
-    }
-
-    #contactBanner {
-        @extend %sloganBtn;
-    }
-}
-
+// scss-lint:disable SelectorFormat
 #footer {
     @extend %sebastianFooter;
 }
+
+#quotesContainer {
+    position: relative;
+    max-height: 130px;
+}
+
+#pageTitle {
+    @extend %pageTitleDefaults;
+}
+
+#concept {
+    @extend %conceptDefaults;
+}
+
+#imageGallery {
+    position: relative;
+}
+
+//#content

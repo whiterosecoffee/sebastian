@@ -36,7 +36,7 @@ function matchHeight(target, targetHeight){
 }
 
 function maxSizeByAsp(target, minAsp, maxAsp){
-    minAsp = minAsp ? minAsp : 1.6;
+    minAsp = minAsp ? minAsp : 1.7;
     maxAsp = maxAsp ? maxAsp : 2.1;
 
 	jQuery(target).css('max-height', 'none');

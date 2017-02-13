@@ -1,1 +1,98 @@
-//home styles
+.home {
+    #content #pageTitle.galleryBottom {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: 100%;
+        padding: .5rem;
+        background-color: rgba(255, 255, 255, .5);
+
+        h1,
+        h4 {
+            @include bp ('small') {
+                font-size: 2vw;
+            }
+
+            @include bp ('afterSmall') {
+                font-size: 1.25vw;
+            }
+        }
+
+        h1 {
+            float: left;
+            color: #222;
+        }
+
+        h4 {
+            float: right;
+            margin: 0;
+            color: #444;
+        }
+    }
+
+    //scss-lint:disable SelectorFormat
+
+    //Flexible Billing Accordion Toggle
+    #flexibleBilling {
+        @extend %contentWidth;
+    }
+
+    .omsc-accordion {
+        margin: 0;
+
+        .omsc-toggle-title {
+
+            text-align: center;
+            //font-weight: bold;
+            color: #ea9904;
+            @include bp(smallPortrait) {
+                font-size: 1.25rem;
+            }
+            @include bp(smallLandscape) {
+                font-size: 1.5rem;
+            }
+            @include bp(afterSmall) {
+                font-size: 2rem;
+            }
+
+        }
+
+        .omsc-toggle-title::after {
+            color: #444;
+        }
+
+        .omsc-toggle-inner p {
+            width: 85%;
+            margin-left: 1rem;
+        }
+    }
+
+    #awards {
+        @extend .floatfix;
+        padding: 0 2rem 1rem;
+
+        h3 {
+            text-align: center;
+            line-height: 1.25;
+            color: $primaryTextColor;
+        }
+
+        img {
+            margin: 1%;
+            -webkit-box-shadow: 3px 3px 3px 0 rgba(66, 66, 66, .6);
+            -moz-box-shadow: 3px 3px 3px 0 rgba(66, 66, 66, .6);
+            box-shadow: 3px 3px 3px 0 rgba(66, 66, 66, .6);
+            @include bp(smallPortrait) {
+                width: 30%;
+            }
+            @include bp(smallLandscape) {
+                width: 22%;
+            }
+            @include bp(afterSmall) {
+                width: 14%;
+            }
+        }
+    }
+}
+//.home

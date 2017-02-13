@@ -11,15 +11,13 @@ Tags: one-column, featured-images
 Text Domain: velcro
 */
 @import "settings";
-@import "icons/icons";
 @import "mixins";
 @import "reset";
+@import "libraries/swipe-js";
+@import "libraries/slick";
 @import "velcro";
 @import "components";
-@import "templates";
-@import "sections";
-@import "modals";
-@import "wordpress";
+@import "elements";
 
 #modals {
     width: 100%;
